@@ -12,8 +12,6 @@ public class FollowPlayer : MonoBehaviour {
     public float spawnTime = 1f;// How long between each spawn.
     public float delayTime = 0.5f;// How long between each spawn.
 
-
-
     void Start()
     {
         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
@@ -21,7 +19,6 @@ public class FollowPlayer : MonoBehaviour {
         {
             InvokeRepeating("Spawn", delayTime, spawnTime);
         }
-       
     }
 
     void Update () {
@@ -35,6 +32,11 @@ public class FollowPlayer : MonoBehaviour {
         enemyOffset = new Vector3(Random.Range(-6, 6), 0, enemyOffset.z);
 
         Instantiate(enemy, transform.position + enemyOffset, transform.rotation);
-    }       
+    }   
+    
+    public void RemoveInvoke(string name)
+    {
+        CancelInvoke(name);
+    }
 
 }

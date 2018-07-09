@@ -9,7 +9,6 @@ public class StaticValue : MonoBehaviour {
     {
         Debug.Log(controlType);
         controlType = "acceleromter";
-        Debug.Log(controlType);
     }
 
 }

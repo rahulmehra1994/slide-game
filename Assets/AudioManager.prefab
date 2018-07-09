@@ -60,19 +60,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: EndScreenMusic
     clip: {fileID: 8300000, guid: f3f40f3c7935ffe4e9f72461e1506af6, type: 3}
-    volume: 0.8
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: GamePlayMusic
     clip: {fileID: 8300000, guid: 8ff5b66f7cff73e4ba1f68b283349f94, type: 3}
-    volume: 0.3
+    volume: 0.4
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: MenuScreenMusic
     clip: {fileID: 8300000, guid: f190fdae85216344bae60a8c52eee58c, type: 3}
-    volume: 0.8
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}

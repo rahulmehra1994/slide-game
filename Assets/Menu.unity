@@ -707,6 +707,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114452470415913546, guid: dd7c97f2dd05aaf4a989f437e487d2bf,
+        type: 2}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452470415913546, guid: dd7c97f2dd05aaf4a989f437e487d2bf,
+        type: 2}
+      propertyPath: sounds.Array.data[0].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452470415913546, guid: dd7c97f2dd05aaf4a989f437e487d2bf,
+        type: 2}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452470415913546, guid: dd7c97f2dd05aaf4a989f437e487d2bf,
+        type: 2}
+      propertyPath: hitSound.name
+      value: CubeHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452470415913546, guid: dd7c97f2dd05aaf4a989f437e487d2bf,
+        type: 2}
+      propertyPath: hitSound.clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e954b87db64327f438e3c3665e8251bf, type: 3}
+    - target: {fileID: 114452470415913546, guid: dd7c97f2dd05aaf4a989f437e487d2bf,
+        type: 2}
+      propertyPath: hitSound.volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452470415913546, guid: dd7c97f2dd05aaf4a989f437e487d2bf,
+        type: 2}
+      propertyPath: hitSound.pitch
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd7c97f2dd05aaf4a989f437e487d2bf, type: 2}
   m_IsPrefabParent: 0

@@ -9,6 +9,9 @@ public class AudioManager : MonoBehaviour {
 
     public Sound[] sounds;
 
+    public Sound hitSound;
+    public AudioSource audioSourceHitSound;
+
     public static AudioManager instance;
 	
     // Use this for initialization
@@ -24,6 +27,17 @@ public class AudioManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
+
+
+
+
+        audioSourceHitSound = gameObject.AddComponent<AudioSource>();
+        audioSourceHitSound.clip = hitSound.clip;
+        audioSourceHitSound.volume = hitSound.volume;
+        audioSourceHitSound.pitch = hitSound.pitch;
+        audioSourceHitSound.loop = hitSound.loop;
+
+
 
         foreach (Sound s in sounds)
         {
@@ -56,6 +70,11 @@ public class AudioManager : MonoBehaviour {
             return;
         }
         s.source.Stop();
+    }
+
+    public void PlayHit()
+    {
+        audioSourceHitSound.Play();
     }
 
 }

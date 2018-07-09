@@ -5,15 +5,16 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour {
 
     public PlayerMovement movement;
-
+    //public AudioManager audioManager;
 
     private void OnCollisionEnter(Collision collisionInfo)
     {
         if(collisionInfo.collider.tag == "Obstacle")
         {
+            FindObjectOfType<FollowPlayer>().RemoveInvoke("Spawn");
             movement.enabled = false;
-            //audioManager.Play("CubeHit");
-            FindObjectOfType<AudioManager>().Play("CubeHit");
+            AudioManager.instance.PlayHit();
+            //FindObjectOfType<AudioManager>().Play("CubeHit");
             FindObjectOfType<GameManager>().EndGame();
         }
     }

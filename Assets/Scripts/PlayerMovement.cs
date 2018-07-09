@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         test = StaticValue.controlType;
         Debug.Log(test);
-        FindObjectOfType<AudioManager>().Play("GamePlayMusic");
+        AudioManager.instance.Play("GamePlayMusic");
     }
 
     //fixedUpdate method is preferrable when we are using unity physics to make every thing smoother
@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (rb.position.y < -2f)
         {
+            FindObjectOfType<FollowPlayer>().RemoveInvoke("Spawn");
             FindObjectOfType<GameManager>().EndGame();
         }
       
