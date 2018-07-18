@@ -8,11 +8,12 @@ using System;
 public class AudioManager : MonoBehaviour {
 
     public Sound[] sounds;
-
-    public Sound hitSound;
-    public AudioSource audioSourceHitSound;
-
     public static AudioManager instance;
+
+    public AudioListener audioListener;
+
+    public bool isMute = false;
+
 	
     // Use this for initialization
 	void Awake () {
@@ -28,17 +29,6 @@ public class AudioManager : MonoBehaviour {
 
         DontDestroyOnLoad(gameObject);
 
-
-
-
-        audioSourceHitSound = gameObject.AddComponent<AudioSource>();
-        audioSourceHitSound.clip = hitSound.clip;
-        audioSourceHitSound.volume = hitSound.volume;
-        audioSourceHitSound.pitch = hitSound.pitch;
-        audioSourceHitSound.loop = hitSound.loop;
-
-
-
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -49,7 +39,6 @@ public class AudioManager : MonoBehaviour {
         }	
 	}
 
-
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -58,9 +47,11 @@ public class AudioManager : MonoBehaviour {
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
-        s.source.Play();
+        if (isMute != true)
+        {
+            s.source.Play();
+        }
     }
-
     public void Stop(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -72,9 +63,16 @@ public class AudioManager : MonoBehaviour {
         s.source.Stop();
     }
 
-    public void PlayHit()
+    public void StopSounds()
     {
-        audioSourceHitSound.Play();
+        audioListener.enabled = false;
+        isMute = true;
+    }
+
+    public void ResumeSounds()
+    {
+        audioListener.enabled = true;
+        isMute = false;
     }
 
 }

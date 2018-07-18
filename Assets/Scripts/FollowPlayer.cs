@@ -27,8 +27,6 @@ public class FollowPlayer : MonoBehaviour {
 
     void Spawn()
     {
-        int rand = Random.Range(-5, 5);
-
         enemyOffset = new Vector3(Random.Range(-6, 6), 0, enemyOffset.z);
 
         Instantiate(enemy, transform.position + enemyOffset, transform.rotation);

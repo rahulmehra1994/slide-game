@@ -8,14 +8,16 @@ public class PlayerMovement : MonoBehaviour {
     public Rigidbody rb;
     public float forwardForce;
     public float sidewaysForce;
-
-    public string test = "keyboard";
+    private float screenCenterX;
+    public string test = "screen";
   
     private void Start()
     {
         test = StaticValue.controlType;
-        Debug.Log(test);
         AudioManager.instance.Play("GamePlayMusic");
+
+        // save the horizontal center of the screen
+        screenCenterX = Screen.width * 0.5f;
     }
 
     //fixedUpdate method is preferrable when we are using unity physics to make every thing smoother
@@ -29,14 +31,36 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (Input.acceleration.x < -0.015)
             {
+                //left
                 rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
             }
             if (Input.acceleration.x > 0.015)
             {
+                //right
                 rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
             }
         }
 
+
+        if (test == "screen")
+        {
+            if (Input.touchCount > 0)
+            {
+                foreach (Touch touch in Input.touches)
+                {
+                    if (touch.position.x < screenCenterX)
+                    {
+                        // move left
+                        rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+                    }
+                    else if (touch.position.x > screenCenterX)
+                    {
+                        // move right
+                        rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+                    }
+                }
+            }
+        }
 
         //keyboard inputs
         if (test == "keyboard")

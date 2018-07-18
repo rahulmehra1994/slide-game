@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour {
     void Awake()
     {
-        FindObjectOfType<AudioManager>().Play("MenuScreenMusic");
+        AudioManager.instance.Play("MenuScreenMusic");
+        AudioManager.instance.Stop("GamePlayMusic");
+        Debug.Log("isMUte " + AudioManager.instance.isMute);
     }
-  
+
 
     public void StartGame()//start is already a predefined func in unity
     {

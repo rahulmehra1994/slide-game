@@ -2,13 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GoogleMobileAds.Api;
 
 public class PauseMenu : MonoBehaviour {
 
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-	
-	void Update () {
+    public InterstitialAd interstitial;
+
+
+
+    private void Start()
+    {
+       
+    }
+
+    void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
@@ -33,6 +42,13 @@ public class PauseMenu : MonoBehaviour {
 
     public void Pause()
     {
+        interstitial = FindObjectOfType<Adds>().interstitial;
+        //interstitial = Adds.interstitial;
+        if (interstitial.IsLoaded())
+        {
+            interstitial.Show();
+        }
+       
         Debug.Log("From Pause");
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;

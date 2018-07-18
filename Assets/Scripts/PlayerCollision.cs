@@ -13,8 +13,7 @@ public class PlayerCollision : MonoBehaviour {
         {
             FindObjectOfType<FollowPlayer>().RemoveInvoke("Spawn");
             movement.enabled = false;
-            AudioManager.instance.PlayHit();
-            //FindObjectOfType<AudioManager>().Play("CubeHit");
+            AudioManager.instance.Play("CubeHit");
             FindObjectOfType<GameManager>().EndGame();
         }
     }
